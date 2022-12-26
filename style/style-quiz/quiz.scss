@@ -1,0 +1,87 @@
+@use "../USE/body";
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    .close{
+        background-color: #71C9CE;
+        border: 0;
+        font-weight: 300px;
+        font-size: large;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .note-condidat{
+        background-color: #71C9CE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        height: 30px;
+        width: 70px;
+        .image{
+            padding-top: 2px;
+        }
+        .lesNotes{
+            padding-bottom: 3px;
+            padding-left: 4px;
+            span{
+                font-size: medium;
+                color: #fff;
+            }
+        }
+    }
+}
+section{
+      align-items: center;
+    .container-question{
+         .round-time-bar {
+            margin: 1rem;
+            overflow: hidden;
+            border-radius: 30px;
+      }
+      .round-time-bar div {
+        height: 5px;
+        animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
+          forwards;
+        transform-origin: left center;
+        background: linear-gradient(to bottom, #71C9CE, #71C9CE);
+      }
+    .round-time-bar[data-style="smooth"] div{
+        animation: roundtime calc(var(--duration) * 1s) linear forwards;
+    }
+    @keyframes roundtime {
+        to {
+          /* More performant than `width` */
+          transform: scaleX(0);
+        }
+      }
+      padding-left: 300px;
+      .question{
+        @extend %flexAndBoxshadow;
+        justify-content: center;
+        width: 700px;
+        height: 200px;
+        padding-left: 30px;
+        padding-right: 30px;
+        strong{
+          @extend %styleLetter;
+        }
+      }
+    }
+    .container-answer{
+      display: flex;
+      justify-content: space-between;
+        @for $i from 1 through 4{
+          .answer#{$i} {
+            @extend %flexAndBoxshadow;
+            justify-content: center;
+            margin: 30px;
+            height: 150px;
+            width: 500px;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        } 
+    }
+}
