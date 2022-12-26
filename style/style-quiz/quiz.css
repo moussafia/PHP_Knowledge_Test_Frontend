@@ -16,7 +16,7 @@ li {
   font-size: 15px;
 }
 
-section .container-question .question, section .container-answer .answer1, section .container-answer .answer2, section .container-answer .answer3, section .container-answer .answer4 {
+section .container-question .question, section .container-answer .answer1, section .container-answer .answer2, section .container-answer .answer3, section .container-answer .answer4, section .skip button {
   background-color: #CBF1F5;
   display: flex;
   align-items: center;
@@ -115,6 +115,7 @@ section .container-answer .answer1 {
   width: 500px;
   padding-left: 20px;
   padding-right: 20px;
+  border: 0;
 }
 section .container-answer .answer2 {
   justify-content: center;
@@ -123,6 +124,7 @@ section .container-answer .answer2 {
   width: 500px;
   padding-left: 20px;
   padding-right: 20px;
+  border: 0;
 }
 section .container-answer .answer3 {
   justify-content: center;
@@ -131,6 +133,7 @@ section .container-answer .answer3 {
   width: 500px;
   padding-left: 20px;
   padding-right: 20px;
+  border: 0;
 }
 section .container-answer .answer4 {
   justify-content: center;
@@ -139,4 +142,27 @@ section .container-answer .answer4 {
   width: 500px;
   padding-left: 20px;
   padding-right: 20px;
+  border: 0;
+}
+section .skip {
+  display: flex;
+  justify-content: end;
+  padding-right: 30px;
+  text-align: center;
+}
+section .skip button {
+  padding-left: 35px;
+  border: 0;
+  border-radius: 0;
+  width: 100px;
+  height: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: large;
+  cursor: pointer;
+}
+section .skip button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
 }/*# sourceMappingURL=quiz.css.map */

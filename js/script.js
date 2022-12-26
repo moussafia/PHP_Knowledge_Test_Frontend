@@ -1,10 +1,18 @@
-// style bar time
-const bars=document.querySelectorAll(".round-time-bar");
+//==============style bar time=======================
 
-bars.forEach((bar)=>{
-    bar.classList.remove("round-time-bar");
-    bar.offsetWidth;
-    console.log(bar);
-    bar.classList.add("round-time-bar");
- 
-  });
+
+//====================== import data.js =========================
+import {quizz} from "./data.js";
+
+//====================== get elementfrom =========================
+let form=document.forms['quiz'];
+
+let answerCount=0;
+
+function showQuizz(){
+  var randomQuestion= quizz[0].question.sort(()=>Math.random() - 0.5);
+  var randomReponse=quizz[0].answers.sort(()=>Math.random() - 0.5);
+
+}
+
+
