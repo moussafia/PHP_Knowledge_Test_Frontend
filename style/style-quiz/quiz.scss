@@ -82,8 +82,20 @@ section{
             padding-left: 20px;
             padding-right: 20px;
             border: 0;
+            cursor: pointer;
+            &:hover{
+              box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
+              color: #fff;
+              transform: translateY(-2px);
+            }          
           }
         } 
+        .correct-answer{
+            background-color: rgba(46, 229, 157, 0.4);
+        }
+        .incorrect-answer{
+          background-color: red;
+      }
     }
   .skip{
     display: flex;
@@ -101,8 +113,7 @@ section{
           font-size: large;
           cursor: pointer;
           &:hover{
-                        background-color: #2EE59D;
-                        box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+                        box-shadow: 0px 10px 12px #71C9CE;
                         color: #fff;
                         transform: translateY(-2px);
           }

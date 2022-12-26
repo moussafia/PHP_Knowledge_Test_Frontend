@@ -36,7 +36,7 @@ export const quizz=[
         id: 6,
         question: "Which of the following function checks if a specified value exists in an array?",
         answers:["extract()","in_array()","key()","krsort()"],
-        trueAnswer:["in_array()","krsort()"]
+        trueAnswer:["in_array()"]
     }
 ]
 

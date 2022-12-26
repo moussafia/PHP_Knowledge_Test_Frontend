@@ -116,6 +116,12 @@ section .container-answer .answer1 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  cursor: pointer;
+}
+section .container-answer .answer1:hover {
+  box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
 }
 section .container-answer .answer2 {
   justify-content: center;
@@ -125,6 +131,12 @@ section .container-answer .answer2 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  cursor: pointer;
+}
+section .container-answer .answer2:hover {
+  box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
 }
 section .container-answer .answer3 {
   justify-content: center;
@@ -134,6 +146,12 @@ section .container-answer .answer3 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  cursor: pointer;
+}
+section .container-answer .answer3:hover {
+  box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
 }
 section .container-answer .answer4 {
   justify-content: center;
@@ -143,6 +161,18 @@ section .container-answer .answer4 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  cursor: pointer;
+}
+section .container-answer .answer4:hover {
+  box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+section .container-answer .correct-answer {
+  background-color: rgba(46, 229, 157, 0.4);
+}
+section .container-answer .incorrect-answer {
+  background-color: red;
 }
 section .skip {
   display: flex;
@@ -161,8 +191,7 @@ section .skip button {
   cursor: pointer;
 }
 section .skip button:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+  box-shadow: 0px 10px 12px #71C9CE;
   color: #fff;
   transform: translateY(-2px);
 }/*# sourceMappingURL=quiz.css.map */
