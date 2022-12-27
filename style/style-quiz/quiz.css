@@ -116,12 +116,15 @@ section .container-answer .answer1 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
   cursor: pointer;
 }
 section .container-answer .answer1:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
+  background-color: rgb(0, 65, 119);
 }
 section .container-answer .answer2 {
   justify-content: center;
@@ -131,12 +134,15 @@ section .container-answer .answer2 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
   cursor: pointer;
 }
 section .container-answer .answer2:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
+  background-color: rgb(0, 65, 119);
 }
 section .container-answer .answer3 {
   justify-content: center;
@@ -146,12 +152,15 @@ section .container-answer .answer3 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
   cursor: pointer;
 }
 section .container-answer .answer3:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
+  background-color: rgb(0, 65, 119);
 }
 section .container-answer .answer4 {
   justify-content: center;
@@ -161,18 +170,23 @@ section .container-answer .answer4 {
   padding-left: 20px;
   padding-right: 20px;
   border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
   cursor: pointer;
 }
 section .container-answer .answer4:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
+  background-color: rgb(0, 65, 119);
 }
 section .container-answer .correct-answer {
   background-color: rgba(46, 229, 157, 0.4);
+  pointer-events: none;
 }
 section .container-answer .incorrect-answer {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.4);
+  pointer-events: none;
 }
 section .skip {
   display: flex;
