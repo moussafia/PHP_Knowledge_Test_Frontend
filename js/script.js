@@ -1,12 +1,10 @@
-//==============style bar time=======================
+//==============show function=======================
 showQuizz();
-
 //====================== import data.js =========================
 import {quizz} from "./data.js";
 
 //====================== get elementfrom =========================
 let score=0;
-
 
 //==================== display quizz in html file =======================
 function showQuizz(){
@@ -28,33 +26,29 @@ var btnAnswer2=document.querySelector(".answer2");
 var btnAnswer3=document.querySelector(".answer3");
 var btnAnswer4=document.querySelector(".answer4");
 var buttonAnswers=[btnAnswer1,btnAnswer2,btnAnswer3,btnAnswer4];
+
+const bar = document.querySelector(".round-time-bar");
+
   // ==========================initialisation des variables=================
-   
     boxQuestion.innerHTML='';
     answer1.innerHTML='';
     answer2.innerHTML='';
     answer3.innerHTML='';
     answer4.innerHTML='';
     let index=0;
-
   // =================== Appel function display==========================
+  next.style.display='none';
   display(index);
   index++;
-  next.addEventListener('click', ()=>{
-      btnAnswer1.classList.remove("correct-answer", "incorrect-answer");
-      btnAnswer2.classList.remove("correct-answer", "incorrect-answer");
-      btnAnswer3.classList.remove("correct-answer", "incorrect-answer");
-      btnAnswer4.classList.remove("correct-answer", "incorrect-answer");
-        for(let i=0;i<buttonAnswers.length;i++){
-          buttonAnswers[i].style.opacity='1';
-        }
-
+  next.addEventListener('click', ()=>{next.style.display='none';progressBarTiming(bar);
+    removeClassesAndOpacity(buttonAnswers);
         display(index);
-        if(index<=randomQuestion.length){
+        if(index<=randomQuestion.length){  
           index++;
         } 
+        
   }
-  );
+  ); 
   
   function display(index){
     boxQuestion.innerHTML=randomQuestion[index].question;
@@ -63,69 +57,52 @@ var buttonAnswers=[btnAnswer1,btnAnswer2,btnAnswer3,btnAnswer4];
       answer3.innerHTML=randomQuestion[index].answers[arrAnswrRandom[2]];
       answer4.innerHTML=randomQuestion[index].answers[arrAnswrRandom[3]];
          
-    
-      
     // ======================declaration variable rempli================
-         var asw1=document.querySelector(".answer1 strong").textContent;
-          var asw2=document.querySelector(".answer2 strong").textContent;
-          var asw3=document.querySelector(".answer3 strong").textContent;
-          var asw4=document.querySelector(".answer4 strong").textContent;
-    console.log(randomQuestion[index].trueAnswer[0]);
-    console.log(asw1);
-    console.log(asw1.localeCompare(randomQuestion[index].trueAnswer[0]));
+        var asw1=document.querySelector(".answer1 strong").textContent;
+        var asw2=document.querySelector(".answer2 strong").textContent;
+        var asw3=document.querySelector(".answer3 strong").textContent;
+        var asw4=document.querySelector(".answer4 strong").textContent;
+        var asws=[asw1,asw2,asw3,asw4];
 
-        btnAnswer1.addEventListener('click',()=>{
-                  btnAnswer1.classList.remove("correct-answer", "incorrect-answer");
-                    if( asw1.localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-                        btnAnswer1.classList.add("correct-answer");
+        for(let j=0;j<buttonAnswers.length;j++){
+          buttonAnswers[j].addEventListener('click',()=>{
+                removeClassesAndOpacity(buttonAnswers);
+                    if( asws[j].localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
+                        buttonAnswers[j].classList.add("correct-answer");
+                        for(let i=0;i<buttonAnswers.length;i++){
+                          buttonAnswers[i].style.pointerEvents='none';
+                          if(i!=j){
+                            buttonAnswers[i].style.opacity='0';
+                          }
+                        }countScores(score);
                     }else{
-                      btnAnswer1.classList.add("incorrect-answer");
-                        for(let i=1;i<=3;i++){
+                      buttonAnswers[j].classList.add("incorrect-answer");
+                        for(let i=0;i<buttonAnswers.length;i++){
+                          buttonAnswers[i].style.pointerEvents='none';
+                          if(i!=j){
                             if(randomQuestion[index].answers[arrAnswrRandom[i]].localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
                               buttonAnswers[i].classList.add("correct-answer");
                             } else buttonAnswers[i].style.opacity='0';
+                          }
                         }
                     }
-          });
-        btnAnswer2.addEventListener('click',()=>{
-                  btnAnswer2.classList.remove("correct-answer", "incorrect-answer");
-                    if( asw2.localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-
-                      btnAnswer2.classList.add("correct-answer");
-                    }else{
-                      btnAnswer2.classList.add("incorrect-answer");
-                      for(let i=0;i<=3 && i!=1;i++){
-                        if(randomQuestion[index].answers[arrAnswrRandom[i]].localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-                          buttonAnswers[i].classList.add("correct-answer");                      
-                        } else buttonAnswers[i].style.opacity='0';
-                    }
-                    }
-          });
-          btnAnswer3.addEventListener('click',()=>{
-            btnAnswer3.classList.remove("correct-answer", "incorrect-answer");
-              if( asw3.localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-                btnAnswer3.classList.add("correct-answer");
-              }else{
-                btnAnswer3.classList.add("incorrect-answer");
-                for(let i=0;i<=3 && i!=2;i++){
-                  if(randomQuestion[index].answers[arrAnswrRandom[i]].localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-                    buttonAnswers[i].classList.add("correct-answer");
-                  }  else buttonAnswers[i].style.opacity='0'; 
-              }
-              }
-           });
-          btnAnswer4.addEventListener('click',()=>{
-            btnAnswer4.classList.remove("correct-answer", "incorrect-answer");
-              if( asw4.localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-                btnAnswer4.classList.add("correct-answer");
-              }else{
-                btnAnswer4.classList.add("incorrect-answer");
-                for(let i=0;i<3;i++){
-                  if(randomQuestion[index].answers[arrAnswrRandom[i]].localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
-                    buttonAnswers[i].classList.add("correct-answer");
-                  }else buttonAnswers[i].style.opacity='0';
-              }
-              }
-          });
+                next.style.display='block';});
+     }
 }
+}
+function removeClassesAndOpacity(array){
+  for(let i=0;i<array.length;i++){
+    array[i].classList.remove("correct-answer", "incorrect-answer");
+    array[i].style.opacity='1';
+    array[i].style.pointerEvents='auto';
+  }
+}  
+function progressBarTiming(array){
+  array.classList.remove("round-time-bar");
+  array.offsetWidth;
+  array.classList.add("round-time-bar");
+}
+function countScores(variable){
+    variable++;
+    return document.querySelector(".lesNotes span").innerHTML=variable;
 }

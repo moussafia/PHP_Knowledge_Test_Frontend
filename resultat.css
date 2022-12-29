@@ -1,0 +1,42 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  overflow: hidden;
+  background-color: #E3FDFD;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  font-size: 15px;
+}
+
+.resultat-condidat .title-resultat, .resultat-condidat .scores-finale {
+  background-color: #CBF1F5;
+  display: flex;
+  align-items: center;
+  box-shadow: 10px 5px 5px #A6E3E9;
+  border-radius: 30px;
+}
+
+.resultat-condidat {
+  align-items: center;
+  padding-top: 60px;
+}
+.resultat-condidat .title-resultat {
+  width: 300px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.resultat-condidat .scores-finale {
+  width: 300px;
+  height: 200px;
+}/*# sourceMappingURL=resultat.css.map */

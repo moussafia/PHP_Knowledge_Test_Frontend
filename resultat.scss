@@ -1,0 +1,20 @@
+@use "./style/USE/body";
+.resultat-condidat{
+ 
+  align-items: center;
+  padding-top: 60px;
+  .title-resultat{
+    @extend %flexAndBoxshadow;
+    width: 300px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  .scores-finale{
+    @extend %flexAndBoxshadow;
+    width: 300px;
+    height: 200px;
+  }
+}
