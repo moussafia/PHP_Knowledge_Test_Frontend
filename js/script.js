@@ -68,13 +68,14 @@ const bar = document.querySelector(".round-time-bar");
           buttonAnswers[j].addEventListener('click',()=>{
                 removeClassesAndOpacity(buttonAnswers);
                     if( asws[j].localeCompare(randomQuestion[index].trueAnswer[0]) == 0){
+                        countScores(score);
                         buttonAnswers[j].classList.add("correct-answer");
                         for(let i=0;i<buttonAnswers.length;i++){
                           buttonAnswers[i].style.pointerEvents='none';
                           if(i!=j){
                             buttonAnswers[i].style.opacity='0';
                           }
-                        }countScores(score);
+                        }
                     }else{
                       buttonAnswers[j].classList.add("incorrect-answer");
                         for(let i=0;i<buttonAnswers.length;i++){
@@ -103,6 +104,7 @@ function progressBarTiming(array){
   array.classList.add("round-time-bar");
 }
 function countScores(variable){
+    
     variable++;
     return document.querySelector(".lesNotes span").innerHTML=variable;
 }
