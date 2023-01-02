@@ -1,12 +1,16 @@
-//==============show function=======================
-showQuizz(score);
 //====================== import data.js =========================
 import { quizz } from "./data.js";
-
+let footer = document.getElementById("page-resultat");
+let header = document.getElementById("page-quiz");
 //====================== get elementfrom =========================
-let score=0;
+let score = 0;
+let index = 0;
+let time = 6;
+//==============show function=======================
+showQuizz(index);
+
 //==================== display quizz in html file =======================
-function showQuizz(score) {
+function showQuizz(index) {
   var randomQuestion = quizz.sort(() => Math.random() - 0.5);
   var arrAnswrCount = [0, 1, 2, 3];
   var arrAnswrRandom = arrAnswrCount.sort(() => Math.random() - 0.5);
@@ -34,29 +38,47 @@ function showQuizz(score) {
   answer2.innerHTML = "";
   answer3.innerHTML = "";
   answer4.innerHTML = "";
-  let index = 0;
-  // =================== Appel function display==========================
-  next.style.display = "none";
-  display(index,next,score);
-  index++;
-  next.addEventListener("click", () => {
-    next.style.display = "none";
-    progressBarTiming(bar);
-    removeClassesAndOpacity(buttonAnswers);
-    display(index,next,score);
-    if (index < randomQuestion.length) {
-      index++;
-    }
-  });
 
-  function display(index,next,score) {
-    document.querySelector(".lesNotes span").innerHTML = score;
+  // =================== Appel function display==========================
+  footer.style.display = "none";
+  next.style.display = "none";
+
+  display(index);
+  next.onclick = () => {
+    index++;
+    if (index < randomQuestion.length) {
+      display(index);
+      next.style.display = "none";
+      progressBarTiming(bar);
+      removeClassesAndOpacity(buttonAnswers);
+    }
+    if (index >= randomQuestion.length) {
+      footer.style.display = "block";
+      header.style.display = "none";
+      document.getElementById("mynote").innerHTML = `${
+        score + "/" + randomQuestion.length
+      }`;
+      document.getElementById("total-correcte-answer").innerHTML = `${
+        Math.trunc((score * 100) / randomQuestion.length) + "%"
+      }`;
+      document.getElementById("total-incorrecte-answer").innerHTML = `${
+        Math.trunc(
+          ((randomQuestion.length - score) * 100) / randomQuestion.length
+        ) + "%"
+      }`;
+    }
+  };
+
+  function display(index) {
     boxQuestion.innerHTML = randomQuestion[index].question;
     answer1.innerHTML = randomQuestion[index].answers[arrAnswrRandom[0]];
     answer2.innerHTML = randomQuestion[index].answers[arrAnswrRandom[1]];
     answer3.innerHTML = randomQuestion[index].answers[arrAnswrRandom[2]];
     answer4.innerHTML = randomQuestion[index].answers[arrAnswrRandom[3]];
-
+    document.querySelector(".lesNotes span").innerHTML = score;
+    document.querySelector("#progress-question span").innerHTML = `${
+      1 + index + " of " + randomQuestion.length + " Question"
+    }`;
     // ======================declaration variable rempli================
     var asw1 = document.querySelector(".answer1 strong").textContent;
     var asw2 = document.querySelector(".answer2 strong").textContent;
@@ -64,55 +86,13 @@ function showQuizz(score) {
     var asw4 = document.querySelector(".answer4 strong").textContent;
     var asws = [asw1, asw2, asw3, asw4];
 
-    EventAnswerUser(0,buttonAnswers,asws,randomQuestion,index,next,score);
-    EventAnswerUser(1,buttonAnswers,asws,randomQuestion,index,next,score);
-    EventAnswerUser(2,buttonAnswers,asws,randomQuestion,index,next,score);
-    EventAnswerUser(3,buttonAnswers,asws,randomQuestion,index,next,score);
-   
+    for (let j = 0; j < buttonAnswers.length; j++) {
+      answerUser(j, buttonAnswers, asws, randomQuestion, index, next);
+    }
+    // timer();
     
   }
 }
-
-function answerUser(j,buttonAnswers,asws,randomQuestion,index,next,score) {
-
-  removeClassesAndOpacity(buttonAnswers);
-  if (asws[j].localeCompare(randomQuestion[index].trueAnswer[0]) == 0) {
-    buttonAnswers[j].classList.add("correct-answer");
-    for (let i = 0; i < buttonAnswers.length; i++) {
-      buttonAnswers[i].style.pointerEvents = "none";
-      if (i != j) {
-        buttonAnswers[i].style.opacity = "0";
-      }
-    }
-    score++;
-
-  } else {
-    buttonAnswers[j].classList.add("incorrect-answer");
-    for (let i = 0; i < buttonAnswers.length; i++) {
-      buttonAnswers[i].style.pointerEvents = "none";
-      if (i != j) {
-        if (
-          randomQuestion[index].answers[arrAnswrRandom[i]].localeCompare(
-            randomQuestion[index].trueAnswer[0]
-          ) == 0
-        ) {
-          buttonAnswers[i].classList.add("correct-answer");
-        } else buttonAnswers[i].style.opacity = "0";
-      }
-    }
-  }
-  next.style.display = "block";
-}
-
-
-
-function EventAnswerUser(j,buttonAnswers,asws,randomQuestion,index,next) {
-  buttonAnswers[j].addEventListener("click", () => {
-    
-    answerUser(j,buttonAnswers,asws,randomQuestion,index,next);
-  });
-}
-
 
 function removeClassesAndOpacity(array) {
   for (let i = 0; i < array.length; i++) {
@@ -122,9 +102,63 @@ function removeClassesAndOpacity(array) {
   }
 }
 
-
 function progressBarTiming(array) {
   array.classList.remove("round-time-bar");
   array.offsetWidth;
   array.classList.add("round-time-bar");
 }
+
+function answerUser(j, buttonAnswers, asws, randomQuestion, index, next) {
+  buttonAnswers[j].onclick = () => {
+    removeClassesAndOpacity(buttonAnswers);
+    if (asws[j].localeCompare(randomQuestion[index].trueAnswer[0]) == 0) {
+      buttonAnswers[j].classList.add("correct-answer");
+      for (let i = 0; i < buttonAnswers.length; i++) {
+        buttonAnswers[i].style.pointerEvents = "none";
+        if (i != j) {
+          buttonAnswers[i].style.opacity = "0";
+        }
+      }
+      score++;
+      document.querySelector(".lesNotes span").innerHTML = score;
+    } else {
+      buttonAnswers[j].classList.add("incorrect-answer");
+      for (let i = 0; i < buttonAnswers.length; i++) {
+        buttonAnswers[i].style.pointerEvents = "none";
+        if (i != j) {
+          if (asws[i].localeCompare(randomQuestion[index].trueAnswer[0]) == 0) {
+            buttonAnswers[i].classList.add("correct-answer");
+          } else buttonAnswers[i].style.opacity = "0";
+        }
+      }
+    }
+    next.style.display = "block";
+  };
+}
+
+let timeDecrement;
+
+
+//   function timer() {
+//     time--;
+//     if (time <= 0) {
+//       clearInterval(timeDecrement);
+//       timeAnswer(buttonAnswers, asws, index);
+//     }
+//     timeDecrement = setInterval(timer, 1000);
+//   console.log(timer())
+//   }
+  
+//   function timeAnswer(buttonAnswers, asws, index) {
+//     removeClassesAndOpacity(buttonAnswers);
+//       for (let j = 0; j < buttonAnswers.length; j++)
+//         if (asws[j].localeCompare(randomQuestion[index].trueAnswer[0]) == 0) {
+//           buttonAnswers[j].classList.add("correct-answer");
+//           for (let i = 0; i < buttonAnswers.length; i++) {
+//             buttonAnswers[i].style.pointerEvents = 'none';
+//             if (i != j) {
+//               buttonAnswers[j].classList.add("incorrect-answer");
+//             }
+//           }
+//         }
+// }

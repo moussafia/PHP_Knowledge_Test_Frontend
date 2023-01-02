@@ -16,7 +16,7 @@ li {
   font-size: 15px;
 }
 
-section .container-question .question, section .container-answer .answer1, section .container-answer .answer2, section .container-answer .answer3, section .container-answer .answer4, section .skip button {
+header section .container-question .question, header section .container-answer .answer1, header section .container-answer .answer2, header section .container-answer .answer3, header section .container-answer .answer4, footer .resultat-condidat .title-resultat, footer .resultat-condidat .scores-finale {
   background-color: #CBF1F5;
   display: flex;
   align-items: center;
@@ -24,26 +24,62 @@ section .container-question .question, section .container-answer .answer1, secti
   border-radius: 30px;
 }
 
-section .container-question .question strong {
+header section .container-question .question strong {
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
 }
 
-nav {
+header section .skip button, footer .resultat-condidat .div-btn-restart button {
+  width: 140px;
+  height: 45px;
+  background-color: #A6E3E9;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+header section .skip button:hover, footer .resultat-condidat .div-btn-restart button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+header nav {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-nav .close {
-  background-color: #71C9CE;
+header nav .close {
+  background-color: #00a9b3;
   border: 0;
-  font-weight: 300px;
+  font-weight: 600;
   font-size: large;
   border-radius: 5px;
   cursor: pointer;
+  color: #fff;
 }
-nav .note-condidat {
-  background-color: #71C9CE;
+header nav .close:hover {
+  background-color: red;
+  box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+  transform: translateY(-2px);
+}
+header nav #progress-question {
+  background-color: #00a9b3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+  color: #fff;
+  font-weight: bold;
+}
+header nav .note-condidat {
+  background-color: #00a9b3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,37 +87,37 @@ nav .note-condidat {
   height: 30px;
   width: 70px;
 }
-nav .note-condidat .image {
+header nav .note-condidat .image {
   padding-top: 2px;
 }
-nav .note-condidat .lesNotes {
+header nav .note-condidat .lesNotes {
   padding-bottom: 3px;
   padding-left: 4px;
 }
-nav .note-condidat .lesNotes span {
-  font-size: medium;
+header nav .note-condidat .lesNotes span {
+  font-size: large;
   color: #fff;
+  font-weight: 600;
 }
-
-section {
+header section {
   align-items: center;
 }
-section .container-question {
+header section .container-question {
   padding-left: 300px;
 }
-section .container-question .round-time-bar {
+header section .container-question .round-time-bar {
   margin: 1rem;
   overflow: hidden;
   border-radius: 30px;
 }
-section .container-question .round-time-bar div {
+header section .container-question .round-time-bar div {
   height: 5px;
   -webkit-animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
           animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
   transform-origin: left center;
-  background: linear-gradient(to bottom, #71C9CE, #71C9CE);
+  background: linear-gradient(to bottom, #71c9ce, #71c9ce);
 }
-section .container-question .round-time-bar[data-style=smooth] div {
+header section .container-question .round-time-bar[data-style=smooth] div {
   -webkit-animation: roundtime calc(var(--duration) * 1s) linear forwards;
           animation: roundtime calc(var(--duration) * 1s) linear forwards;
 }
@@ -97,18 +133,18 @@ section .container-question .round-time-bar[data-style=smooth] div {
     transform: scaleX(0);
   }
 }
-section .container-question .question {
+header section .container-question .question {
   justify-content: center;
   width: 700px;
   height: 200px;
   padding-left: 30px;
   padding-right: 30px;
 }
-section .container-answer {
+header section .container-answer {
   display: flex;
   justify-content: space-between;
 }
-section .container-answer .answer1 {
+header section .container-answer .answer1 {
   justify-content: center;
   margin: 30px;
   height: 150px;
@@ -120,13 +156,13 @@ section .container-answer .answer1 {
   box-sizing: border-box;
   cursor: pointer;
 }
-section .container-answer .answer1:hover {
+header section .container-answer .answer1:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
   background-color: rgb(0, 65, 119);
 }
-section .container-answer .answer2 {
+header section .container-answer .answer2 {
   justify-content: center;
   margin: 30px;
   height: 150px;
@@ -138,13 +174,13 @@ section .container-answer .answer2 {
   box-sizing: border-box;
   cursor: pointer;
 }
-section .container-answer .answer2:hover {
+header section .container-answer .answer2:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
   background-color: rgb(0, 65, 119);
 }
-section .container-answer .answer3 {
+header section .container-answer .answer3 {
   justify-content: center;
   margin: 30px;
   height: 150px;
@@ -156,13 +192,13 @@ section .container-answer .answer3 {
   box-sizing: border-box;
   cursor: pointer;
 }
-section .container-answer .answer3:hover {
+header section .container-answer .answer3:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
   background-color: rgb(0, 65, 119);
 }
-section .container-answer .answer4 {
+header section .container-answer .answer4 {
   justify-content: center;
   margin: 30px;
   height: 150px;
@@ -174,37 +210,71 @@ section .container-answer .answer4 {
   box-sizing: border-box;
   cursor: pointer;
 }
-section .container-answer .answer4:hover {
+header section .container-answer .answer4:hover {
   box-shadow: 0px 10px 12px rgba(11, 114, 151, 0.4);
   color: #fff;
   transform: translateY(-2px);
   background-color: rgb(0, 65, 119);
 }
-section .container-answer .correct-answer {
+header section .container-answer .correct-answer {
   background-color: rgba(46, 229, 157, 0.4);
   pointer-events: none;
 }
-section .container-answer .incorrect-answer {
+header section .container-answer .incorrect-answer {
   background-color: rgba(255, 0, 0, 0.4);
   pointer-events: none;
 }
-section .skip {
+header section .skip {
   display: flex;
   justify-content: end;
   padding-right: 30px;
 }
-section .skip button {
-  border: 0;
-  border-radius: 0;
-  width: 100px;
-  height: 30px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: large;
-  cursor: pointer;
-  text-align: center;
+footer .resultat-condidat {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
 }
-section .skip button:hover {
-  box-shadow: 0px 10px 12px #71C9CE;
-  color: #fff;
-  transform: translateY(-2px);
+footer .resultat-condidat .title-resultat {
+  width: 500px;
+  height: 60px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+}
+footer .resultat-condidat .scores-finale {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+footer .resultat-condidat .scores-finale .image-resultat {
+  padding-top: 20px;
+}
+footer .resultat-condidat .scores-finale .table-resultat {
+  padding-top: 10px;
+}
+footer .resultat-condidat .scores-finale .table-resultat .style-table {
+  border-collapse: collapse;
+  font-family: sans-serif;
+}
+footer .resultat-condidat .scores-finale .table-resultat .style-table tr {
+  border-bottom: 0.5px solid rgb(124, 208, 234);
+}
+footer .resultat-condidat .scores-finale .table-resultat .style-table tr td {
+  text-align: center;
+  align-items: center;
+  font-size: large;
+  padding: 10px;
+}
+footer .resultat-condidat .scores-finale .table-resultat .style-table tr td span {
+  font-weight: 100;
+}
+footer .resultat-condidat .div-btn-restart {
+  padding-top: 10px;
 }/*# sourceMappingURL=quiz.css.map */

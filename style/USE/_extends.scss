@@ -1,0 +1,71 @@
+$myColor : "one" #E3FDFD,
+"two" #CBF1F5,
+"three" #A6E3E9,
+"four" #71C9CE;
+
+@mixin PadAndMarg($size) {
+    @if $size==mobile {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @else if $size==desktop {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    overflow: hidden;
+    background-color: #E3FDFD;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    font-size: 15px;
+}
+
+$clorBg: #CBF1F5;
+$colorBxShdow: #A6E3E9;
+
+%flexAndBoxshadow {
+    background-color: $clorBg;
+    display: flex;
+    align-items: center;
+    box-shadow: 10px 5px 5px $colorBxShdow;
+    border-radius: 30px;
+}
+
+%styleLetter {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+%buttonEntreretRestart {
+    width: 140px;
+    height: 45px;
+    background-color: #A6E3E9;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        background-color: #2EE59D;
+        box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+}

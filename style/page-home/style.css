@@ -16,8 +16,26 @@ li {
   font-size: 15px;
 }
 
+main .index .countainer-page-homme .button-entrer .btn {
+  width: 140px;
+  height: 45px;
+  background-color: #A6E3E9;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+main .index .countainer-page-homme .button-entrer .btn:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 nav {
-  background-color: #71C9CE;
+  background-color: #71c9ce;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -48,7 +66,7 @@ nav .category {
   position: relative;
 }
 nav .dropDown {
-  background-color: #71C9CE;
+  background-color: #71c9ce;
   padding: 1em 0;
   position: absolute;
   display: none;
@@ -82,7 +100,7 @@ nav .symbole-lignes-three {
   nav .menu {
     display: none;
     position: absolute;
-    background-color: #71C9CE;
+    background-color: #71c9ce;
     right: 0;
     left: 0;
     text-align: center;
@@ -141,15 +159,18 @@ main .index .countainer-page-homme {
   margin: 10px;
 }
 main .index .countainer-page-homme .about-us {
-  background-color: #CBF1F5;
-  box-shadow: 10px 5px 5px #A6E3E9;
+  background-color: #cbf1f5;
+  box-shadow: 10px 5px 5px #a6e3e9;
   width: 300px;
-  height: 250px;
-  display: flex;
-  align-items: center;
-  text-align: center;
   border-radius: 20px;
-  padding: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 70px;
+}
+main .index .countainer-page-homme .about-us .info-header h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
 }
 main .index .countainer-page-homme .button-entrer {
   padding: 13px;
@@ -164,21 +185,4 @@ main .index .countainer-page-homme .button-entrer a {
   letter-spacing: 2.5px;
   font-weight: 500px;
   color: #000;
-}
-main .index .countainer-page-homme .button-entrer .btn {
-  width: 140px;
-  height: 45px;
-  background-color: #A6E3E9;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-main .index .countainer-page-homme .button-entrer .btn:hover {
-  background-color: #2EE59D;
-  box-shadow: 0px 10px 12px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  transform: translateY(-2px);
 }/*# sourceMappingURL=style.css.map */
