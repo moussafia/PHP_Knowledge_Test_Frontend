@@ -1,28 +1,21 @@
-//====================== import data.js =========================
 import { quizz } from "./data.js";
 let footer = document.getElementById("page-resultat");
 let header = document.getElementById("page-quiz");
-//====================== get elementfrom =========================
 let score = 0;
 let index = 0;
 let time = 6;
-//==============show function=======================
 showQuizz(index);
 
-//==================== display quizz in html file =======================
 function showQuizz(index) {
   var randomQuestion = quizz.sort(() => Math.random() - 0.5);
   var arrAnswrCount = [0, 1, 2, 3];
   var arrAnswrRandom = arrAnswrCount.sort(() => Math.random() - 0.5);
 
-  // ======================declaration variable vide================
   var boxQuestion = document.querySelector(".question strong");
   var answer1 = document.querySelector(".answer1 strong");
   var answer2 = document.querySelector(".answer2 strong");
   var answer3 = document.querySelector(".answer3 strong");
   var answer4 = document.querySelector(".answer4 strong");
-
-  // ======================declaration button answer================
   var next = document.getElementById("btn-skip");
   var btnAnswer1 = document.querySelector(".answer1");
   var btnAnswer2 = document.querySelector(".answer2");
@@ -31,15 +24,11 @@ function showQuizz(index) {
   var buttonAnswers = [btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4];
 
   const bar = document.querySelector(".round-time-bar");
-
-  // ==========================initialisation des variables=================
   boxQuestion.innerHTML = "";
   answer1.innerHTML = "";
   answer2.innerHTML = "";
   answer3.innerHTML = "";
   answer4.innerHTML = "";
-
-  // =================== Appel function display==========================
   footer.style.display = "none";
   next.style.display = "none";
 
@@ -79,7 +68,6 @@ function showQuizz(index) {
     document.querySelector("#progress-question span").innerHTML = `${
       1 + index + " of " + randomQuestion.length + " Question"
     }`;
-    // ======================declaration variable rempli================
     var asw1 = document.querySelector(".answer1 strong").textContent;
     var asw2 = document.querySelector(".answer2 strong").textContent;
     var asw3 = document.querySelector(".answer3 strong").textContent;
@@ -88,9 +76,7 @@ function showQuizz(index) {
 
     for (let j = 0; j < buttonAnswers.length; j++) {
       answerUser(j, buttonAnswers, asws, randomQuestion, index, next);
-    }
-    // timer();
-    
+    }    
   }
 }
 
@@ -136,29 +122,5 @@ function answerUser(j, buttonAnswers, asws, randomQuestion, index, next) {
   };
 }
 
-let timeDecrement;
 
 
-//   function timer() {
-//     time--;
-//     if (time <= 0) {
-//       clearInterval(timeDecrement);
-//       timeAnswer(buttonAnswers, asws, index);
-//     }
-//     timeDecrement = setInterval(timer, 1000);
-//   console.log(timer())
-//   }
-  
-//   function timeAnswer(buttonAnswers, asws, index) {
-//     removeClassesAndOpacity(buttonAnswers);
-//       for (let j = 0; j < buttonAnswers.length; j++)
-//         if (asws[j].localeCompare(randomQuestion[index].trueAnswer[0]) == 0) {
-//           buttonAnswers[j].classList.add("correct-answer");
-//           for (let i = 0; i < buttonAnswers.length; i++) {
-//             buttonAnswers[i].style.pointerEvents = 'none';
-//             if (i != j) {
-//               buttonAnswers[j].classList.add("incorrect-answer");
-//             }
-//           }
-//         }
-// }
